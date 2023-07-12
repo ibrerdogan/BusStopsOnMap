@@ -21,7 +21,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         addComponents()
         configureView()
+        configureDelegates()
         presenter.getStations()
+    }
+    
+    private func configureDelegates(){
+        presenter.delegate = self
     }
     
     private func addComponents(){
@@ -36,12 +41,19 @@ class HomeViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-
+    
 }
+
 extension HomeViewController: HomePresenterDelegate{
     func showStations(_ stations: [Station]) {
-        
+        for station in stations {
+            if let coordinate = station.centerCoordinates.coordinates(){
+               let stationLocation = MKPointAnnotation()
+                stationLocation.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                mapView.addAnnotation(stationLocation)
+            }
+        }
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func showAlert(_ alertText: String) {
