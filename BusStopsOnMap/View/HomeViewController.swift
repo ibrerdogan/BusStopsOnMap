@@ -7,9 +7,11 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 class HomeViewController: UIViewController {
 
     let presenter = HomePresenter(stationManager: StationManager())
+    let locationManager = CLLocationManager()
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,10 +25,12 @@ class HomeViewController: UIViewController {
         configureView()
         configureDelegates()
         presenter.getStations()
+        askLocationPermission()
     }
     
     private func configureDelegates(){
         presenter.delegate = self
+        locationManager.delegate = self
     }
     
     private func addComponents(){
@@ -41,6 +45,16 @@ class HomeViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    private func askLocationPermission(){
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    private func centerMap(_ region: MKCoordinateRegion){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
+            self?.mapView.setRegion(region, animated: true)
+            self?.locationManager.stopUpdatingLocation()
+        }
+    }
     
 }
 
@@ -54,11 +68,19 @@ extension HomeViewController: HomePresenterDelegate{
             }
         }
         mapView.showAnnotations(mapView.annotations, animated: true)
+        mapView.showsUserLocation = true
     }
     
     func showAlert(_ alertText: String) {
         
     }
-    
-    
+}
+
+extension HomeViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+           if let location = locations.last {
+               let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+               centerMap(region)
+           }
+       }
 }
