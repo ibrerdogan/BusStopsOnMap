@@ -6,12 +6,33 @@
 //
 
 import UIKit
-
+import MapKit
 class HomeViewController: UIViewController {
 
+    private lazy var mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.isZoomEnabled = true
+        mapView.isRotateEnabled = true
+        return mapView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        addComponents()
+        configureView()
+    }
+    
+    private func addComponents(){
+        view.addSubview(mapView)
+    }
+    
+    private func configureView(){
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 
 

@@ -56,6 +56,7 @@
 		7F0961762A5F258D00109032 /* BusStopsOnMap */ = {
 			isa = PBXGroup;
 			children = (
+				7F0961852A5F259000109032 /* Info.plist */,
 				7F0961952A5F2DB400109032 /* Utilities */,
 				7F0961942A5F2D9700109032 /* SupportingFiles */,
 				7F09618F2A5F2C7800109032 /* Presenter */,
@@ -110,7 +111,6 @@
 		7F0961942A5F2D9700109032 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				7F0961852A5F259000109032 /* Info.plist */,
 				7F0961802A5F259000109032 /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
