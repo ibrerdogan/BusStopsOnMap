@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 class HomeViewController: UIViewController {
 
+    let presenter = HomePresenter(stationManager: StationManager())
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         addComponents()
         configureView()
+        presenter.getStations()
     }
     
     private func addComponents(){
@@ -37,4 +39,14 @@ class HomeViewController: UIViewController {
 
 
 }
-
+extension HomeViewController: HomePresenterDelegate{
+    func showStations(_ stations: [Station]) {
+        
+    }
+    
+    func showAlert(_ alertText: String) {
+        
+    }
+    
+    
+}
