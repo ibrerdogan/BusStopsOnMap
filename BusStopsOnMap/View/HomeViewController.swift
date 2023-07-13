@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
     private func configureDelegates(){
         presenter.delegate = self
         locationManager.delegate = self
+        mapView.delegate = self
     }
     
     private func addComponents(){
@@ -62,8 +63,8 @@ extension HomeViewController: HomePresenterDelegate{
     func showStations(_ stations: [Station]) {
         for station in stations {
             if let coordinate = station.centerCoordinates.coordinates(){
-               let stationLocation = MKPointAnnotation()
-                stationLocation.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+               let stationLocation = StationAnnotation(coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
+                                                       title: station.name)
                 mapView.addAnnotation(stationLocation)
             }
         }
@@ -83,4 +84,18 @@ extension HomeViewController: CLLocationManagerDelegate{
                centerMap(region)
            }
        }
+}
+
+extension HomeViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let stationAnnotation = annotation as? StationAnnotation else {return nil}
+        let view = StationAnnotationiew(annotation: stationAnnotation, reuseIdentifier: "pin")
+        view.canShowCallout = false
+        return view
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view as? StationAnnotationiew{
+            annotation.setImageForSelection()
+        }
+    }
 }

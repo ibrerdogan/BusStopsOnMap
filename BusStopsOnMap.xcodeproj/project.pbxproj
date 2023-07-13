@@ -17,6 +17,7 @@
 		7F09619D2A5F361900109032 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619C2A5F361900109032 /* LocationManager.swift */; };
 		7F09619F2A5F380000109032 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619E2A5F380000109032 /* Keys.swift */; };
 		7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A02A5F4B1B00109032 /* Extensions.swift */; };
+		7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A22A5F573700109032 /* StationAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7F09619C2A5F361900109032 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7F09619E2A5F380000109032 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7F0961A02A5F4B1B00109032 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7F0961A22A5F573700109032 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				7F09617B2A5F258D00109032 /* HomeViewController.swift */,
+				7F0961A22A5F573700109032 /* StationAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				7F0961972A5F2E3700109032 /* StationModel.swift in Sources */,
 				7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */,
 				7F09619F2A5F380000109032 /* Keys.swift in Sources */,
+				7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */,
 				7F09617C2A5F258D00109032 /* HomeViewController.swift in Sources */,
 				7F0961782A5F258D00109032 /* AppDelegate.swift in Sources */,
 				7F09619D2A5F361900109032 /* LocationManager.swift in Sources */,
