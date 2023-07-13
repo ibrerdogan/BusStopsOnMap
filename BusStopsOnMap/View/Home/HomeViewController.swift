@@ -77,7 +77,7 @@ class HomeViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     private func centerMap(_ region: MKCoordinateRegion){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
             self?.mapView.setRegion(region, animated: true)
             self?.locationManager.stopUpdatingLocation()
         }
@@ -106,7 +106,7 @@ extension HomeViewController: HomePresenterDelegate{
 extension HomeViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
            if let location = locations.last {
-               let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+               let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
                centerMap(region)
            }
        }
