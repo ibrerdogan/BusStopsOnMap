@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
         }
     }
     @objc private func centeredButtonClicked(){
-        navigationController?.pushViewController(TripListViewController(),
+        navigationController?.pushViewController(TripListViewController(station: presenter.selectedStation!),
                                                  animated: true)
     }
     
@@ -101,7 +101,8 @@ extension HomeViewController: HomePresenterDelegate{
         for station in stations {
             if let coordinate = station.centerCoordinates.coordinates(){
                let stationLocation = StationAnnotation(coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
-                                                       title: station.name)
+                                                       title: station.name,
+                                                       station: station)
                 mapView.addAnnotation(stationLocation)
             }
         }
@@ -126,13 +127,14 @@ extension HomeViewController: CLLocationManagerDelegate{
 extension HomeViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let stationAnnotation = annotation as? StationAnnotation else {return nil}
-        let view = StationAnnotationiew(annotation: stationAnnotation, reuseIdentifier: "pin")
+        let view = StationCustomAnnotationView(stationAnnotation: stationAnnotation, station: stationAnnotation.station)
         view.canShowCallout = false
         return view
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view as? StationAnnotationiew{
-            annotation.setImageForSelection()
+        if let annotation = view as? StationCustomAnnotationView{
+            annotation.setSelected(true, animated: true)
+            presenter.selectedStation = annotation.Station
             buttonContainer.isHidden = false
         }
     }

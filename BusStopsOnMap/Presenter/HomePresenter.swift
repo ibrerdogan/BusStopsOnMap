@@ -15,6 +15,7 @@ protocol HomePresenterDelegate: AnyObject{
 class HomePresenter{
     private let stationManager: StationManager
     weak var delegate: HomePresenterDelegate?
+    var selectedStation: Station?
     init(stationManager: StationManager) {
         self.stationManager = stationManager
     }
