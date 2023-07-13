@@ -22,6 +22,7 @@
 		7F0961A92A608BE500109032 /* TripListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A82A608BE500109032 /* TripListPresenter.swift */; };
 		7F0961AB2A60977000109032 /* StationCustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */; };
 		7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AC2A609E7000109032 /* TripListCellView.swift */; };
+		7F0961AF2A60A61600109032 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AE2A60A61600109032 /* ButtonContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7F0961A82A608BE500109032 /* TripListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListPresenter.swift; sourceTree = "<group>"; };
 		7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCustomAnnotationView.swift; sourceTree = "<group>"; };
 		7F0961AC2A609E7000109032 /* TripListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListCellView.swift; sourceTree = "<group>"; };
+		7F0961AE2A60A61600109032 /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				7F0961A62A608BBF00109032 /* TripListViewController.swift */,
 				7F0961AC2A609E7000109032 /* TripListCellView.swift */,
+				7F0961AE2A60A61600109032 /* ButtonContainerView.swift */,
 			);
 			path = TripList;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F0961972A5F2E3700109032 /* StationModel.swift in Sources */,
+				7F0961AF2A60A61600109032 /* ButtonContainerView.swift in Sources */,
 				7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */,
 				7F09619F2A5F380000109032 /* Keys.swift in Sources */,
 				7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */,
