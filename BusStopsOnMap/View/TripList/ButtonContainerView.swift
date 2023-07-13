@@ -19,7 +19,6 @@ class ButtonContainerView: UIView {
     private lazy var buttonLabel: UILabel = {
         let buttonLabel = UILabel()
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
-        buttonLabel.text = "List Trips"
         buttonLabel.textColor = .white
         return buttonLabel
     }()

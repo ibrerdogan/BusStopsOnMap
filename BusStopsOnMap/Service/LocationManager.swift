@@ -16,7 +16,38 @@ class StationManager{
         fetch(type: [Station].self, url: apiUrl, completion: completion)
     }
     
-    func fetch<T : Codable>(type : T.Type ,url : URL? , completion : @escaping (Result<T,APIError>)->Void)
+    func bookTrip(station: String, trip: String, completion : @escaping (Result<Bool,APIError>)->Void){
+        let newURLString = Keys.StationApiLink + station + "/trips/" + trip
+        guard let url = URL(string: newURLString) else {
+            let error = APIError.badURL
+            completion(Result.failure(error))
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error as? URLError  {
+                completion(Result.failure(APIError.urlSession(error)))
+                return
+            }
+            guard data != nil else {
+                completion(Result.failure(APIError.unknown))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse,!(200...299).contains(response.statusCode) {
+                completion(Result.failure(APIError.badResponse(response.statusCode)))
+            }else{
+                completion(Result.success(true))
+            }
+        }
+
+        // İsteği başlatın
+        task.resume()
+
+    }
+    
+    func fetch<T : Codable>(type : T.Type ,url : URL? ,isPost: Bool? = nil, completion : @escaping (Result<T,APIError>)->Void)
     {
         guard let url = url else {
             let error = APIError.badURL
