@@ -7,8 +7,17 @@
 
 import Foundation
 import UIKit
+
+protocol TripListCellViewDelegate: AnyObject{
+    func buttonClicked(_ trip: Trip)
+}
+
 class TripListCellView: UITableViewCell {
     static let identifier = "customTableViewCell"
+    var buttonGesture: UITapGestureRecognizer?
+    var trip: Trip?
+    var tripIndex = 0
+    weak var delegate: TripListCellViewDelegate?
     private lazy var busNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,13 +33,14 @@ class TripListCellView: UITableViewCell {
         container.translatesAutoresizingMaskIntoConstraints = false
         container.clipsToBounds = true
         container.layer.cornerRadius = 15
+        container.isUserInteractionEnabled = true
         return container
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addComponents()
         configureLayout()
-        
+        configureGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -58,10 +68,22 @@ class TripListCellView: UITableViewCell {
         ])
     }
     
-    func configureCell(_ busName: String, _ time: String){
-        busNameLabel.text = busName
-        tripTimeLabel.text = time
+    func configureCell(_ trip : Trip){
+        busNameLabel.text = trip.busName
+        tripTimeLabel.text = trip.time
+        self.trip = trip
         buttonContainer.configureButtonText("Book")
+    }
+    
+    func configureGesture(){
+        buttonGesture = UITapGestureRecognizer(target: self, action: #selector(buttonClicked))
+        buttonContainer.addGestureRecognizer(buttonGesture!)
+    }
+    
+    @objc func buttonClicked(){
+        if let trip = trip{
+            delegate?.buttonClicked(trip)
+        }
     }
     
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class TripListViewController: UIViewController {
     let station: Station
+    let presenter = TripPresenter(stationManager: StationManager())
     private lazy var mainTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +39,7 @@ class TripListViewController: UIViewController {
         view.addSubview(mainTableView)
     }
     private func configureDelegates(){
+        presenter.delegate = self
         mainTableView.delegate = self
         mainTableView.dataSource = self
     }
@@ -58,8 +60,28 @@ extension TripListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mainTableView.dequeueReusableCell(withIdentifier: TripListCellView.identifier, for: indexPath) as? TripListCellView
-        cell?.configureCell(station.trips[indexPath.row].busName, station.trips[indexPath.row].time)
+        cell?.configureCell(station.trips[indexPath.row])
+        cell?.delegate = self
         return cell!
+    }
+
+}
+
+extension TripListViewController: TripListCellViewDelegate{
+    func buttonClicked(_ trip: Trip) {
+        presenter.bookToTrip(station, tripIndex: trip.id)
+    }
+}
+
+extension TripListViewController: TripPresenterDelegate{
+    func bookingSuccess() {
+        DispatchQueue.main.async {[weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func bookingFailed(_ alertText: String) {
+        print(alertText)
     }
     
     
