@@ -21,6 +21,7 @@
 		7F0961A72A608BBF00109032 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A62A608BBF00109032 /* TripListViewController.swift */; };
 		7F0961A92A608BE500109032 /* TripListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A82A608BE500109032 /* TripListPresenter.swift */; };
 		7F0961AB2A60977000109032 /* StationCustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */; };
+		7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AC2A609E7000109032 /* TripListCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7F0961A62A608BBF00109032 /* TripListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewController.swift; sourceTree = "<group>"; };
 		7F0961A82A608BE500109032 /* TripListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListPresenter.swift; sourceTree = "<group>"; };
 		7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCustomAnnotationView.swift; sourceTree = "<group>"; };
+		7F0961AC2A609E7000109032 /* TripListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0961A62A608BBF00109032 /* TripListViewController.swift */,
+				7F0961AC2A609E7000109032 /* TripListCellView.swift */,
 			);
 			path = TripList;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				7F09619F2A5F380000109032 /* Keys.swift in Sources */,
 				7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */,
 				7F0961A72A608BBF00109032 /* TripListViewController.swift in Sources */,
+				7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */,
 				7F09617C2A5F258D00109032 /* HomeViewController.swift in Sources */,
 				7F0961782A5F258D00109032 /* AppDelegate.swift in Sources */,
 				7F09619D2A5F361900109032 /* LocationManager.swift in Sources */,
