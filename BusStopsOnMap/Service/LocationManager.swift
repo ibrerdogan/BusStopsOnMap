@@ -8,37 +8,45 @@
 import Foundation
 
 class StationManager{
-    func getStations(completion : @escaping (Result<[Station],APIError>) -> ())
-    {
+    func fetchStations(completion: @escaping (Result<[Station],APIError>) -> ()){
         guard let apiUrl = URL(string: Keys.StationApiLink) else {
             completion(.failure(.badURL))
             return
         }
-        URLSession.shared.dataTask(with: apiUrl) { data, response, error in
-            guard error == nil else {
-                completion(.failure(.urlSession((error as? URLError)!)))
-                return
-            }
-            guard let response = response as? HTTPURLResponse , response.statusCode == 200 else {
-                let code = response as? HTTPURLResponse
-                completion(.failure(.badResponse(code?.statusCode ?? 0)))
-                return
-            }
-            guard let data = data else {
-                completion(.failure(.unknown))
-                return
-            }
-            
-            do{
-                let myArray = try JSONDecoder().decode([Station].self, from: data)
-                completion(.success(myArray))
-            }
-            catch{
-                completion(.failure(.unknown))
-            }
-        }
-        .resume()
+        fetch(type: [Station].self, url: apiUrl, completion: completion)
     }
+    
+    func fetch<T : Codable>(type : T.Type ,url : URL? , completion : @escaping (Result<T,APIError>)->Void)
+    {
+        guard let url = url else {
+            let error = APIError.badURL
+            completion(Result.failure(error))
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error as? URLError {
+                completion(Result.failure(APIError.urlSession(error)))
+            }
+            else if let response = response as? HTTPURLResponse,!(200...299).contains(response.statusCode) {
+                completion(Result.failure(APIError.badResponse(response.statusCode)))
+            }
+            if let data = data {
+                do{
+                   let album = try JSONDecoder().decode(type.self, from: data)
+                    completion(Result.success(album))
+                    
+                }
+                catch
+                {
+                    completion(Result.failure(APIError.decodingError(error as? DecodingError)))
+                }
+               
+               
+            }
+        }.resume()
+    }
+    
 }
 enum APIError : Error , CustomStringConvertible
 {

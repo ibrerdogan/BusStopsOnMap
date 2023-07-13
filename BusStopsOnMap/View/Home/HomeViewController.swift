@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     let presenter = HomePresenter(stationManager: StationManager())
     let locationManager = CLLocationManager()
+    var buttonRecognizer: UITapGestureRecognizer?
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
         container.layer.cornerRadius = 30
         container.backgroundColor = .blue
         container.isHidden = true
+        container.isUserInteractionEnabled = true
         return container
     }()
     private lazy var buttonLabel: UILabel = {
@@ -38,6 +40,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         addComponents()
         configureView()
+        configureButtonRecognizer()
         configureDelegates()
         presenter.getStations()
         askLocationPermission()
@@ -49,6 +52,10 @@ class HomeViewController: UIViewController {
         mapView.delegate = self
     }
     
+    private func configureButtonRecognizer(){
+        buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(centeredButtonClicked))
+        buttonContainer.addGestureRecognizer(buttonRecognizer!)
+    }
     private func addComponents(){
         view.addSubview(mapView)
         view.addSubview(buttonContainer)
@@ -81,6 +88,10 @@ class HomeViewController: UIViewController {
             self?.mapView.setRegion(region, animated: true)
             self?.locationManager.stopUpdatingLocation()
         }
+    }
+    @objc private func centeredButtonClicked(){
+        navigationController?.pushViewController(TripListViewController(),
+                                                 animated: true)
     }
     
 }

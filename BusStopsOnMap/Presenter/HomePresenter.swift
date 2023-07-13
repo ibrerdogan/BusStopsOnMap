@@ -21,7 +21,7 @@ class HomePresenter{
     
     func getStations()
     {
-        stationManager.getStations {[weak self] result in
+        stationManager.fetchStations {[weak self] result in
             switch result {
             case .success(let success):
                 self?.delegate?.showStations(success)
