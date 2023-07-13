@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.cornerRadius = 30
         container.backgroundColor = .blue
+        container.isHidden = true
         return container
     }()
     private lazy var buttonLabel: UILabel = {
@@ -121,6 +122,7 @@ extension HomeViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view as? StationAnnotationiew{
             annotation.setImageForSelection()
+            buttonContainer.isHidden = false
         }
     }
 }

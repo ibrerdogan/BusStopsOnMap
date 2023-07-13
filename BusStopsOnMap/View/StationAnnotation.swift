@@ -22,10 +22,12 @@ class StationAnnotation: NSObject, MKAnnotation {
 }
 
 class StationAnnotationiew: MKAnnotationView {
+    weak var delegate: StationAnnotationDelegate?
     override var annotation: MKAnnotation? {
         willSet {
             guard let customAnnotation = newValue as? StationAnnotation else { return }
             image = customAnnotation.isSelected ? UIImage(named: "Point") : UIImage(named: "SelectedPoint")
+            delegate?.stationClicked()
         }
     }
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
@@ -43,6 +45,9 @@ class StationAnnotationiew: MKAnnotationView {
      }
 }
 
+protocol StationAnnotationDelegate: AnyObject{
+    func stationClicked()
+}
 
 
 
