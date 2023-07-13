@@ -19,6 +19,20 @@ class HomeViewController: UIViewController {
         mapView.isRotateEnabled = true
         return mapView
     }()
+    private lazy var buttonContainer: UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.layer.cornerRadius = 30
+        container.backgroundColor = .blue
+        return container
+    }()
+    private lazy var buttonLabel: UILabel = {
+        let buttonLabel = UILabel()
+        buttonLabel.translatesAutoresizingMaskIntoConstraints = false
+        buttonLabel.text = "List Trips"
+        buttonLabel.textColor = .white
+        return buttonLabel
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         addComponents()
@@ -36,6 +50,8 @@ class HomeViewController: UIViewController {
     
     private func addComponents(){
         view.addSubview(mapView)
+        view.addSubview(buttonContainer)
+        buttonContainer.addSubview(buttonLabel)
     }
     
     private func configureView(){
@@ -43,7 +59,16 @@ class HomeViewController: UIViewController {
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            buttonContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            buttonContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            buttonContainer.heightAnchor.constraint(equalToConstant: 60),
+            
+            buttonLabel.centerXAnchor.constraint(equalTo: buttonContainer.centerXAnchor),
+            buttonLabel.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor),
+            
         ])
     }
     private func askLocationPermission(){
