@@ -45,6 +45,9 @@ class HomeViewController: UIViewController {
         presenter.getStations()
         askLocationPermission()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        reloadAnnotationViews()
+    }
     
     private func configureDelegates(){
         presenter.delegate = self
@@ -92,6 +95,15 @@ class HomeViewController: UIViewController {
     @objc private func centeredButtonClicked(){
         navigationController?.pushViewController(TripListViewController(station: presenter.selectedStation!),
                                                  animated: true)
+    }
+    private func reloadAnnotationViews() {
+        for annotation in mapView.annotations {
+            if mapView.view(for: annotation) != nil {
+                mapView.removeAnnotation(annotation)
+                mapView.addAnnotation(annotation)
+                mapView.deselectAnnotation(annotation, animated: false)
+            }
+        }
     }
     
 }
