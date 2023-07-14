@@ -23,6 +23,7 @@
 		7F0961AB2A60977000109032 /* StationCustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */; };
 		7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AC2A609E7000109032 /* TripListCellView.swift */; };
 		7F0961AF2A60A61600109032 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AE2A60A61600109032 /* ButtonContainerView.swift */; };
+		7F0961B22A60CA7B00109032 /* EzPopup in Frameworks */ = {isa = PBXBuildFile; productRef = 7F0961B12A60CA7B00109032 /* EzPopup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0961B22A60CA7B00109032 /* EzPopup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +187,9 @@
 			dependencies = (
 			);
 			name = BusStopsOnMap;
+			packageProductDependencies = (
+				7F0961B12A60CA7B00109032 /* EzPopup */,
+			);
 			productName = BusStopsOnMap;
 			productReference = 7F0961742A5F258D00109032 /* BusStopsOnMap.app */;
 			productType = "com.apple.product-type.application";
@@ -213,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 7F09616B2A5F258D00109032;
+			packageReferences = (
+				7F0961B02A60CA7B00109032 /* XCRemoteSwiftPackageReference "EzPopup" */,
+			);
 			productRefGroup = 7F0961752A5F258D00109032 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -453,6 +461,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F0961B02A60CA7B00109032 /* XCRemoteSwiftPackageReference "EzPopup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huynguyencong/EzPopup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F0961B12A60CA7B00109032 /* EzPopup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F0961B02A60CA7B00109032 /* XCRemoteSwiftPackageReference "EzPopup" */;
+			productName = EzPopup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F09616C2A5F258D00109032 /* Project object */;
 }
