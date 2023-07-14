@@ -13,6 +13,11 @@
 		7F0961812A5F259000109032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F0961802A5F259000109032 /* Assets.xcassets */; };
 		7F0961972A5F2E3700109032 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961962A5F2E3700109032 /* StationModel.swift */; };
 		7F0961992A5F2E6C00109032 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961982A5F2E6C00109032 /* TripModel.swift */; };
+		7F09619B2A5F346C00109032 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619A2A5F346C00109032 /* HomePresenter.swift */; };
+		7F09619D2A5F361900109032 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619C2A5F361900109032 /* LocationManager.swift */; };
+		7F09619F2A5F380000109032 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619E2A5F380000109032 /* Keys.swift */; };
+		7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A02A5F4B1B00109032 /* Extensions.swift */; };
+		7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A22A5F573700109032 /* StationAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		7F0961852A5F259000109032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F0961962A5F2E3700109032 /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
 		7F0961982A5F2E6C00109032 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		7F09619A2A5F346C00109032 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		7F09619C2A5F361900109032 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7F09619E2A5F380000109032 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		7F0961A02A5F4B1B00109032 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7F0961A22A5F573700109032 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 		7F0961762A5F258D00109032 /* BusStopsOnMap */ = {
 			isa = PBXGroup;
 			children = (
+				7F0961852A5F259000109032 /* Info.plist */,
 				7F0961952A5F2DB400109032 /* Utilities */,
 				7F0961942A5F2D9700109032 /* SupportingFiles */,
 				7F09618F2A5F2C7800109032 /* Presenter */,
@@ -79,6 +90,7 @@
 		7F09618C2A5F2C4D00109032 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7F09619C2A5F361900109032 /* LocationManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -96,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				7F09617B2A5F258D00109032 /* HomeViewController.swift */,
+				7F0961A22A5F573700109032 /* StationAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +116,7 @@
 		7F09618F2A5F2C7800109032 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				7F09619A2A5F346C00109032 /* HomePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -110,7 +124,6 @@
 		7F0961942A5F2D9700109032 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				7F0961852A5F259000109032 /* Info.plist */,
 				7F0961802A5F259000109032 /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
@@ -119,6 +132,8 @@
 		7F0961952A5F2DB400109032 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7F09619E2A5F380000109032 /* Keys.swift */,
+				7F0961A02A5F4B1B00109032 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -193,8 +208,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F0961972A5F2E3700109032 /* StationModel.swift in Sources */,
+				7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */,
+				7F09619F2A5F380000109032 /* Keys.swift in Sources */,
+				7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */,
 				7F09617C2A5F258D00109032 /* HomeViewController.swift in Sources */,
 				7F0961782A5F258D00109032 /* AppDelegate.swift in Sources */,
+				7F09619D2A5F361900109032 /* LocationManager.swift in Sources */,
+				7F09619B2A5F346C00109032 /* HomePresenter.swift in Sources */,
 				7F0961992A5F2E6C00109032 /* TripModel.swift in Sources */,
 				7F09617A2A5F258D00109032 /* SceneDelegate.swift in Sources */,
 			);
@@ -327,6 +347,7 @@
 				DEVELOPMENT_TEAM = PG9S8XJGY8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BusStopsOnMap/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need Locatipn";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -355,6 +376,7 @@
 				DEVELOPMENT_TEAM = PG9S8XJGY8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BusStopsOnMap/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need Locatipn";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
