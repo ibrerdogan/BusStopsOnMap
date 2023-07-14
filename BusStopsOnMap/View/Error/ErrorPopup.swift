@@ -7,7 +7,13 @@
 
 import Foundation
 import UIKit
+
+protocol ErrorPopupViewDelegate: AnyObject{
+    func dismisView()
+}
 class ErrorPopupviewController: UIViewController {
+    var buttonRecognizer: UITapGestureRecognizer?
+    weak var delegate: ErrorPopupViewDelegate?
     private lazy var errorTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -28,6 +34,7 @@ class ErrorPopupviewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -36,13 +43,17 @@ class ErrorPopupviewController: UIViewController {
         view.backgroundColor = .white
         addComponents()
         configureLayout()
-        
+        configureGesture()
     }
     
     func configure(_ title: String, _ subTitle: String,_ buttonText: String){
         errorTitleLabel.text = title
         errorSubTitleLabel.text = subTitle
         errorButtonView.configureButtonText(buttonText)
+    }
+    private func configureGesture(){
+        buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(centeredButtonClicked))
+        errorButtonView.addGestureRecognizer(buttonRecognizer!)
     }
     
     private func addComponents(){
@@ -60,10 +71,13 @@ class ErrorPopupviewController: UIViewController {
             errorSubTitleLabel.leadingAnchor.constraint(equalTo: errorTitleLabel.leadingAnchor),
             errorSubTitleLabel.trailingAnchor.constraint(equalTo: errorTitleLabel.trailingAnchor),
             
-            errorButtonView.topAnchor.constraint(equalTo: errorSubTitleLabel.bottomAnchor, constant: 10),
+            errorButtonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
             errorButtonView.leadingAnchor.constraint(equalTo: errorTitleLabel.leadingAnchor),
             errorButtonView.trailingAnchor.constraint(equalTo: errorTitleLabel.trailingAnchor),
             errorButtonView.heightAnchor.constraint(equalToConstant: 40)
         ])
+    }
+    @objc private func centeredButtonClicked(){
+        delegate?.dismisView()
     }
 }

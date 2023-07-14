@@ -84,11 +84,19 @@ extension TripListViewController: TripPresenterDelegate{
     func bookingFailed(_ alertText: String) {
         DispatchQueue.main.async {[weak self] in
             let alertViewController = ErrorPopupviewController()
+            alertViewController.delegate = self
             alertViewController.configure("The Trip You Selected is Full", "Please select another one.", "Select a trip")
-            self?.popup = PopupViewController(contentController: alertViewController, popupWidth: (self?.view.frame.width)! * 0.8, popupHeight: 200)
+            self?.popup = PopupViewController(contentController: alertViewController, popupWidth: (self?.view.frame.width)! * 0.8, popupHeight: 150)
             self?.present((self?.popup!)!,animated: true)
         }
     }
     
     
+}
+
+extension TripListViewController: ErrorPopupViewDelegate{
+    func dismisView() {
+        popup?.dismiss(animated: true)
+    }
+
 }
