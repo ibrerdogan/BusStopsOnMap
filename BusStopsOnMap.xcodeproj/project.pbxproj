@@ -9,21 +9,44 @@
 /* Begin PBXBuildFile section */
 		7F0961782A5F258D00109032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961772A5F258D00109032 /* AppDelegate.swift */; };
 		7F09617A2A5F258D00109032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961792A5F258D00109032 /* SceneDelegate.swift */; };
-		7F09617C2A5F258D00109032 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09617B2A5F258D00109032 /* ViewController.swift */; };
-		7F09617F2A5F258D00109032 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F09617D2A5F258D00109032 /* Main.storyboard */; };
+		7F09617C2A5F258D00109032 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09617B2A5F258D00109032 /* HomeViewController.swift */; };
 		7F0961812A5F259000109032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F0961802A5F259000109032 /* Assets.xcassets */; };
-		7F0961842A5F259000109032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F0961822A5F259000109032 /* LaunchScreen.storyboard */; };
+		7F0961972A5F2E3700109032 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961962A5F2E3700109032 /* StationModel.swift */; };
+		7F0961992A5F2E6C00109032 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961982A5F2E6C00109032 /* TripModel.swift */; };
+		7F09619B2A5F346C00109032 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619A2A5F346C00109032 /* HomePresenter.swift */; };
+		7F09619D2A5F361900109032 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619C2A5F361900109032 /* LocationManager.swift */; };
+		7F09619F2A5F380000109032 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09619E2A5F380000109032 /* Keys.swift */; };
+		7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A02A5F4B1B00109032 /* Extensions.swift */; };
+		7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A22A5F573700109032 /* StationAnnotation.swift */; };
+		7F0961A72A608BBF00109032 /* TripListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A62A608BBF00109032 /* TripListViewController.swift */; };
+		7F0961A92A608BE500109032 /* TripListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961A82A608BE500109032 /* TripListPresenter.swift */; };
+		7F0961AB2A60977000109032 /* StationCustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */; };
+		7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AC2A609E7000109032 /* TripListCellView.swift */; };
+		7F0961AF2A60A61600109032 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AE2A60A61600109032 /* ButtonContainerView.swift */; };
+		7F0961B22A60CA7B00109032 /* EzPopup in Frameworks */ = {isa = PBXBuildFile; productRef = 7F0961B12A60CA7B00109032 /* EzPopup */; };
+		7F0961B52A60CB0600109032 /* ErrorPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961B42A60CB0600109032 /* ErrorPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7F0961742A5F258D00109032 /* BusStopsOnMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStopsOnMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0961772A5F258D00109032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F0961792A5F258D00109032 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F09617B2A5F258D00109032 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7F09617E2A5F258D00109032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7F09617B2A5F258D00109032 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7F0961802A5F259000109032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7F0961832A5F259000109032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F0961852A5F259000109032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F0961962A5F2E3700109032 /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		7F0961982A5F2E6C00109032 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		7F09619A2A5F346C00109032 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		7F09619C2A5F361900109032 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7F09619E2A5F380000109032 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		7F0961A02A5F4B1B00109032 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7F0961A22A5F573700109032 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
+		7F0961A62A608BBF00109032 /* TripListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewController.swift; sourceTree = "<group>"; };
+		7F0961A82A608BE500109032 /* TripListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListPresenter.swift; sourceTree = "<group>"; };
+		7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCustomAnnotationView.swift; sourceTree = "<group>"; };
+		7F0961AC2A609E7000109032 /* TripListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListCellView.swift; sourceTree = "<group>"; };
+		7F0961AE2A60A61600109032 /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
+		7F0961B42A60CB0600109032 /* ErrorPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0961B22A60CA7B00109032 /* EzPopup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +80,106 @@
 		7F0961762A5F258D00109032 /* BusStopsOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				7F0961772A5F258D00109032 /* AppDelegate.swift */,
-				7F0961792A5F258D00109032 /* SceneDelegate.swift */,
-				7F09617B2A5F258D00109032 /* ViewController.swift */,
-				7F09617D2A5F258D00109032 /* Main.storyboard */,
-				7F0961802A5F259000109032 /* Assets.xcassets */,
-				7F0961822A5F259000109032 /* LaunchScreen.storyboard */,
 				7F0961852A5F259000109032 /* Info.plist */,
+				7F0961952A5F2DB400109032 /* Utilities */,
+				7F0961942A5F2D9700109032 /* SupportingFiles */,
+				7F09618F2A5F2C7800109032 /* Presenter */,
+				7F09618E2A5F2C5800109032 /* View */,
+				7F09618D2A5F2C5400109032 /* Model */,
+				7F09618C2A5F2C4D00109032 /* Service */,
+				7F09618B2A5F2BFC00109032 /* AppDelegates */,
 			);
 			path = BusStopsOnMap;
+			sourceTree = "<group>";
+		};
+		7F09618B2A5F2BFC00109032 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961772A5F258D00109032 /* AppDelegate.swift */,
+				7F0961792A5F258D00109032 /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		7F09618C2A5F2C4D00109032 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7F09619C2A5F361900109032 /* LocationManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7F09618D2A5F2C5400109032 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961962A5F2E3700109032 /* StationModel.swift */,
+				7F0961982A5F2E6C00109032 /* TripModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7F09618E2A5F2C5800109032 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961B32A60CAF300109032 /* Error */,
+				7F0961A52A608B9A00109032 /* TripList */,
+				7F0961A42A608B8F00109032 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7F09618F2A5F2C7800109032 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7F09619A2A5F346C00109032 /* HomePresenter.swift */,
+				7F0961A82A608BE500109032 /* TripListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7F0961942A5F2D9700109032 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961802A5F259000109032 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		7F0961952A5F2DB400109032 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7F09619E2A5F380000109032 /* Keys.swift */,
+				7F0961A02A5F4B1B00109032 /* Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7F0961A42A608B8F00109032 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7F09617B2A5F258D00109032 /* HomeViewController.swift */,
+				7F0961A22A5F573700109032 /* StationAnnotation.swift */,
+				7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7F0961A52A608B9A00109032 /* TripList */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961A62A608BBF00109032 /* TripListViewController.swift */,
+				7F0961AC2A609E7000109032 /* TripListCellView.swift */,
+				7F0961AE2A60A61600109032 /* ButtonContainerView.swift */,
+			);
+			path = TripList;
+			sourceTree = "<group>";
+		};
+		7F0961B32A60CAF300109032 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961B42A60CB0600109032 /* ErrorPopup.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +198,9 @@
 			dependencies = (
 			);
 			name = BusStopsOnMap;
+			packageProductDependencies = (
+				7F0961B12A60CA7B00109032 /* EzPopup */,
+			);
 			productName = BusStopsOnMap;
 			productReference = 7F0961742A5F258D00109032 /* BusStopsOnMap.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +229,9 @@
 				Base,
 			);
 			mainGroup = 7F09616B2A5F258D00109032;
+			packageReferences = (
+				7F0961B02A60CA7B00109032 /* XCRemoteSwiftPackageReference "EzPopup" */,
+			);
 			productRefGroup = 7F0961752A5F258D00109032 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F0961842A5F259000109032 /* LaunchScreen.storyboard in Resources */,
 				7F0961812A5F259000109032 /* Assets.xcassets in Resources */,
-				7F09617F2A5F258D00109032 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +257,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F09617C2A5F258D00109032 /* ViewController.swift in Sources */,
+				7F0961972A5F2E3700109032 /* StationModel.swift in Sources */,
+				7F0961AF2A60A61600109032 /* ButtonContainerView.swift in Sources */,
+				7F0961A12A5F4B1B00109032 /* Extensions.swift in Sources */,
+				7F09619F2A5F380000109032 /* Keys.swift in Sources */,
+				7F0961A32A5F573700109032 /* StationAnnotation.swift in Sources */,
+				7F0961A72A608BBF00109032 /* TripListViewController.swift in Sources */,
+				7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */,
+				7F09617C2A5F258D00109032 /* HomeViewController.swift in Sources */,
 				7F0961782A5F258D00109032 /* AppDelegate.swift in Sources */,
+				7F0961B52A60CB0600109032 /* ErrorPopup.swift in Sources */,
+				7F09619D2A5F361900109032 /* LocationManager.swift in Sources */,
+				7F0961AB2A60977000109032 /* StationCustomAnnotationView.swift in Sources */,
+				7F09619B2A5F346C00109032 /* HomePresenter.swift in Sources */,
+				7F0961A92A608BE500109032 /* TripListPresenter.swift in Sources */,
+				7F0961992A5F2E6C00109032 /* TripModel.swift in Sources */,
 				7F09617A2A5F258D00109032 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7F09617D2A5F258D00109032 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F09617E2A5F258D00109032 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7F0961822A5F259000109032 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F0961832A5F259000109032 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7F0961862A5F259000109032 /* Debug */ = {
@@ -290,9 +403,10 @@
 				DEVELOPMENT_TEAM = PG9S8XJGY8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BusStopsOnMap/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need Locatipn";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,9 +432,10 @@
 				DEVELOPMENT_TEAM = PG9S8XJGY8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BusStopsOnMap/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need Locatipn";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +473,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F0961B02A60CA7B00109032 /* XCRemoteSwiftPackageReference "EzPopup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huynguyencong/EzPopup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F0961B12A60CA7B00109032 /* EzPopup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F0961B02A60CA7B00109032 /* XCRemoteSwiftPackageReference "EzPopup" */;
+			productName = EzPopup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F09616C2A5F258D00109032 /* Project object */;
 }
