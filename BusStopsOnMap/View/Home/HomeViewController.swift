@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     let presenter = HomePresenter(stationManager: StationManager())
     let locationManager = CLLocationManager()
+    var buttonRecognizer: UITapGestureRecognizer?
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
         container.layer.cornerRadius = 30
         container.backgroundColor = .blue
         container.isHidden = true
+        container.isUserInteractionEnabled = true
         return container
     }()
     private lazy var buttonLabel: UILabel = {
@@ -38,6 +40,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         addComponents()
         configureView()
+        configureButtonRecognizer()
         configureDelegates()
         presenter.getStations()
         askLocationPermission()
@@ -49,6 +52,10 @@ class HomeViewController: UIViewController {
         mapView.delegate = self
     }
     
+    private func configureButtonRecognizer(){
+        buttonRecognizer = UITapGestureRecognizer(target: self, action: #selector(centeredButtonClicked))
+        buttonContainer.addGestureRecognizer(buttonRecognizer!)
+    }
     private func addComponents(){
         view.addSubview(mapView)
         view.addSubview(buttonContainer)
@@ -77,10 +84,14 @@ class HomeViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     private func centerMap(_ region: MKCoordinateRegion){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
             self?.mapView.setRegion(region, animated: true)
             self?.locationManager.stopUpdatingLocation()
         }
+    }
+    @objc private func centeredButtonClicked(){
+        navigationController?.pushViewController(TripListViewController(station: presenter.selectedStation!),
+                                                 animated: true)
     }
     
 }
@@ -90,7 +101,8 @@ extension HomeViewController: HomePresenterDelegate{
         for station in stations {
             if let coordinate = station.centerCoordinates.coordinates(){
                let stationLocation = StationAnnotation(coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
-                                                       title: station.name)
+                                                       title: station.name,
+                                                       station: station)
                 mapView.addAnnotation(stationLocation)
             }
         }
@@ -106,7 +118,7 @@ extension HomeViewController: HomePresenterDelegate{
 extension HomeViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
            if let location = locations.last {
-               let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+               let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
                centerMap(region)
            }
        }
@@ -115,13 +127,14 @@ extension HomeViewController: CLLocationManagerDelegate{
 extension HomeViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let stationAnnotation = annotation as? StationAnnotation else {return nil}
-        let view = StationAnnotationiew(annotation: stationAnnotation, reuseIdentifier: "pin")
+        let view = StationCustomAnnotationView(stationAnnotation: stationAnnotation, station: stationAnnotation.station)
         view.canShowCallout = false
         return view
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view as? StationAnnotationiew{
-            annotation.setImageForSelection()
+        if let annotation = view as? StationCustomAnnotationView{
+            annotation.setSelected(true, animated: true)
+            presenter.selectedStation = annotation.Station
             buttonContainer.isHidden = false
         }
     }
