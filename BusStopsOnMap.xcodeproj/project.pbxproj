@@ -24,6 +24,7 @@
 		7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AC2A609E7000109032 /* TripListCellView.swift */; };
 		7F0961AF2A60A61600109032 /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961AE2A60A61600109032 /* ButtonContainerView.swift */; };
 		7F0961B22A60CA7B00109032 /* EzPopup in Frameworks */ = {isa = PBXBuildFile; productRef = 7F0961B12A60CA7B00109032 /* EzPopup */; };
+		7F0961B52A60CB0600109032 /* ErrorPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0961B42A60CB0600109032 /* ErrorPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		7F0961AA2A60977000109032 /* StationCustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCustomAnnotationView.swift; sourceTree = "<group>"; };
 		7F0961AC2A609E7000109032 /* TripListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListCellView.swift; sourceTree = "<group>"; };
 		7F0961AE2A60A61600109032 /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
+		7F0961B42A60CB0600109032 /* ErrorPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		7F09618E2A5F2C5800109032 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F0961B32A60CAF300109032 /* Error */,
 				7F0961A52A608B9A00109032 /* TripList */,
 				7F0961A42A608B8F00109032 /* Home */,
 			);
@@ -169,6 +172,14 @@
 				7F0961AE2A60A61600109032 /* ButtonContainerView.swift */,
 			);
 			path = TripList;
+			sourceTree = "<group>";
+		};
+		7F0961B32A60CAF300109032 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7F0961B42A60CB0600109032 /* ErrorPopup.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 				7F0961AD2A609E7000109032 /* TripListCellView.swift in Sources */,
 				7F09617C2A5F258D00109032 /* HomeViewController.swift in Sources */,
 				7F0961782A5F258D00109032 /* AppDelegate.swift in Sources */,
+				7F0961B52A60CB0600109032 /* ErrorPopup.swift in Sources */,
 				7F09619D2A5F361900109032 /* LocationManager.swift in Sources */,
 				7F0961AB2A60977000109032 /* StationCustomAnnotationView.swift in Sources */,
 				7F09619B2A5F346C00109032 /* HomePresenter.swift in Sources */,

@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
+import EzPopup
 class TripListViewController: UIViewController {
     let station: Station
     let presenter = TripPresenter(stationManager: StationManager())
+    var popup: PopupViewController?
     private lazy var mainTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +82,12 @@ extension TripListViewController: TripPresenterDelegate{
     }
     
     func bookingFailed(_ alertText: String) {
-        print(alertText)
+        DispatchQueue.main.async {[weak self] in
+            let alertViewController = ErrorPopupviewController()
+            alertViewController.configure("The Trip You Selected is Full", "Please select another one.", "Select a trip")
+            self?.popup = PopupViewController(contentController: alertViewController, popupWidth: (self?.view.frame.width)! * 0.8, popupHeight: 200)
+            self?.present((self?.popup!)!,animated: true)
+        }
     }
     
     
