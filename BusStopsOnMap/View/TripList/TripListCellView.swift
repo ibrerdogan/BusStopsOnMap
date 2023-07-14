@@ -16,7 +16,6 @@ class TripListCellView: UITableViewCell {
     static let identifier = "customTableViewCell"
     var buttonGesture: UITapGestureRecognizer?
     var trip: Trip?
-    var tripIndex = 0
     weak var delegate: TripListCellViewDelegate?
     private lazy var busNameLabel: UILabel = {
         let label = UILabel()
